@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  # Tier 1: The Web App
+  flask-app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  # Tier 2: The Database
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3306:3306"
