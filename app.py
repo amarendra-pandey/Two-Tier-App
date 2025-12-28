@@ -6,9 +6,9 @@ app = Flask(__name__)
 # Backend: Logic to connect to the MySQL database (Tier 2)
 def get_db_connection():
     return mysql.connector.connect(
-        host="localhost",
+        host="db", # <--- FIX: Use the service name from docker-compose
         user="root",
-        password="admin",
+        password="password",
         database="testdb"
     )
 
